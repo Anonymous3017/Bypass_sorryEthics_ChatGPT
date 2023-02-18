@@ -10,11 +10,34 @@
 	<p><strong>Prompt:</strong> {{ prompt }}</p>
 	<p><strong>Output:</strong></p>
 	<pre><code class="hljs">
-    <div class="output">
-        {% for text in output %}
-            {{ text }}
-        {% endfor %}
-    </div>
+		<div class="output">
+			{% for text in output %}
+			  {{ text }}
+			{% endfor %}
+			<button class="copy-button" onclick="copyToClipboard()">Copy</button>
+		  </div>
+		  
+		  <script>
+		  function copyToClipboard() {
+			/* Get the text content of the output box */
+			const outputBox = document.querySelector('.output');
+			const outputText = outputBox.innerText.trim();
+		  
+			/* Create a temporary textarea element and copy the text to it */
+			const tempTextArea = document.createElement('textarea');
+			tempTextArea.value = outputText;
+			document.body.appendChild(tempTextArea);
+			tempTextArea.select();
+			document.execCommand('copy');
+			document.body.removeChild(tempTextArea);
+		  
+			/* Change the text of the Copy button to indicate success */
+			const copyButton = document.querySelector('.copy-button');
+			copyButton.innerText = 'Copied!';
+			setTimeout(() => { copyButton.innerText = 'Copy'; }, 1000);
+		  }
+		  </script>
+		  
 	</code></pre>
 	<p><a href="/">Query again</a></p>
 	<script src="https://unpkg.com/highlight.js"></script>
