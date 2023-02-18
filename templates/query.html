@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OpenAI API Query</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/highlight.js/styles/default.min.css">
+</head>
+<body>
+	<h1>OpenAI API Query</h1>
+	<p><strong>Prompt:</strong> {{ prompt }}</p>
+	<p><strong>Output:</strong></p>
+	<pre><code class="hljs">
+    <div class="output">
+        {% for text in output %}
+            {{ text }}
+        {% endfor %}
+    </div>
+	</code></pre>
+	<p><a href="/">Query again</a></p>
+	<script src="https://unpkg.com/highlight.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
