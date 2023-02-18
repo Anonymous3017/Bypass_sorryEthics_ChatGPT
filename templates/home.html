@@ -2,12 +2,71 @@
 <html>
 <head>
 	<title>OpenAI API Query</title>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+		}
+
+		h1 {
+			margin-bottom: 2em;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			max-width: 600px;
+		}
+
+		label {
+			font-weight: bold;
+			margin-bottom: 1em;
+		}
+
+		input[type="text"] {
+			padding: 0.5em;
+			border-radius: 0.5em;
+			border: 1px solid #ccc;
+			width: 100%;
+			max-width: 100%;
+			resize: vertical;
+			height: 6em;
+			font-size: 1em;
+			line-height: 1.5;
+			margin-bottom: 1em;
+			word-wrap: break-word;
+		}
+
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 1em;
+			border: none;
+			border-radius: 0.5em;
+			cursor: pointer;
+			font-size: 1em;
+			margin-bottom: 2em;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+	</style>
 </head>
 <body>
 	<h1>OpenAI API Query</h1>
 	<form action="/query" method="POST">
 		<label for="prompt">Prompt:</label>
-		<input type="text" id="prompt" name="prompt" autocomplete="off"> 
+		<input type="text" id="prompt" name="prompt" autocomplete="off" style="width: 100%; max-width: 500px; word-wrap: break-word;"> 
 		<input type="submit" value="Submit">
 	</form>
 </body>
